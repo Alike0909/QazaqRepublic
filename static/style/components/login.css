@@ -1,0 +1,14 @@
+.login {
+    padding: 24px;
+    width: fit-content;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+    border-radius: 12px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.login #btn {
+    padding: 12px 0;
+    width: 240px;
+    background: #1847b3;
+    color: white;
+}

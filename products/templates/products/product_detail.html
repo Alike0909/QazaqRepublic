@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    </head>
+    <section class="details">
+        <div class="details-image">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                {% for photo in photos %}
+                    <div class="swiper-slide"><img class="swiper-img" src="/media/{{ photo.image }}" alt=""></div>
+                {% endfor %}
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+        <div class="details-desc">
+            <div class="title">
+                <h1 id="product-name" >{{ product.name }}</h1>
+                <h3 id="product-feature" >{{ product.feature }}</h3>
+                <span id="product-price" >{{ product.price }} ₸</span>
+                {% if is_size == 1 %}
+                    <div onclick="showSizes()" class="size" id="size">Выберите размер</div>
+                    <div id="size-option" class="size-option">
+                        <span class="choose-option">S</span>
+                        <span class="choose-option">M</span>
+                        <span class="choose-option">L</span>
+                        <span class="choose-option">XL</span>
+                        <span class="choose-option">XXL</span>
+                    </div>
+                {% else %}
+                    <div style="display:none;" id="size" class="size">0</div>
+                {% endif %}
+                <div class="color-wrapper">
+                    <div id="product-color" class="color-holder call-picker"></div>
+                    <div class="color-picker" id="color-picker" style="display: none"></div>
+                </div>
+                <div class="details-buttons">
+                    <button type="submit" onclick="addToCart(event);" class="add-to-cart">
+                        Добавить в корзину
+                    </button>
+                    <input id="product-id" type="hidden" value="{{ product.id }}">
+                    <button onclick="like();" class="liked">
+                        <svg id="empty-heart" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                        </svg>
+                        <svg style="display: none;" id="full-heart" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                        </svg>
+                    </button>
+                    <script>
+                        productId = document.getElementById("product-id").value;
+                        if (productId in localStorage) {
+                            fillHeart();
+                        }
+                        function fillHeart() {
+                            document.getElementById("empty-heart").style.display = "none";
+                            document.getElementById("full-heart").style.display = "flex";
+                            document.getElementById("full-heart").style.color = "red";
+                            document.getElementById("full-heart").style.marginLeft = "18px";
+                        }
+                    </script>
+                </div>
+                <div class="details-info">
+                    <span>Доставим <sub style="text-decoration: underline;" id="order-date">19 февраля</sub> или позже</span>
+                    <div class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-shop" viewBox="0 0 16 16">
+                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z"/>
+                        </svg>
+                        <span>В пунктах выдачи заказов - с примеркой, всегда <sub style="font-weight:bold;">бесплатно</sub></span>
+                    </div>
+                    <div class="info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                            <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                        </svg>
+                        <span>По адресу, курьером - с примеркой, всегда <sub style="font-weight:bold;">бесплатно</sub></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="reviews">
+        <div class="reviews-title">
+            <h1>Отзывы (<span style="font-size:42px;">{{ reviewsLen }}</span>)</h1>
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="reviews-inputs">
+                <div class="inputs-review">
+                    <textarea name="review-input" id="review-input" cols="30" rows="10" placeholder="Ваш отзыв" required></textarea>
+                </div>
+                <div class="inputs-identify">
+                    <input placeholder="Имя" id="name" name="name" type="text" required>
+                    <input placeholder="Фамилия" id="surname" name="surname" type="text" required>
+                    <button type="submit" name="submitBtn">Отправить</button>
+                </div>
+            </div>
+        </form>
+        <div class="reviews-info">
+            {% for review in reviews %}
+                <div class="reviews-item">
+                    <div class="item-title">
+                        <span>{{ review.name }}  {{ review.surname }}</span>
+                        <sub style="opacity:0.6; font-size: 20px !important; margin-left:6px;">15 февраля</sub>
+                    </div>
+                    <div class="item-info">
+                        <span>{{ review.review_input }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <script src="{% static 'js/product_detail.js' %}?{% now "U" %}"></script>
+    <script src="{% static 'js/likes.js' %}?{% now "U" %}"></script>
+    <script src="{% static 'js/add_to_cart.js' %}?{% now "U" %}"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        centeredSlides: true,
+        autoplay: {
+            delay: 3500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        });
+    </script>
+{% endblock content %}
+

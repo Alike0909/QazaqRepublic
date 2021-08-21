@@ -1,0 +1,132 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'style/all.css' %}?{% now "U" %}">
+    <style>
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            overflow: hidden;
+            width: calc(33,3333% - 30px);
+        }
+
+        .swiper-wrapper img {
+            height: 60vh;
+            width: 100%;
+        }
+    </style>
+    <title>Qazaq Republic</title>
+</head>
+<body>
+    <section class="billing">
+        <div class="shipping">
+            <div class="shipping-title">
+                <h1>Derekter</h1>
+            </div>
+            <form method="post" >
+                {% csrf_token %}
+                <div class="shipping-desc">
+                    <div class="shipping-item">
+                        <span>Имя:</span>
+                        <input id="name" name="name" type="text" required>
+                    </div>
+                    <div class="shipping-item">
+                        <span>Фамилия:</span>
+                        <input id="surname" name="surname" type="text" required>
+                    </div>
+                    <div class="shipping-item">
+                        <span>Город:</span>
+                        <input id="city" name="city" type="text" required>
+                    </div>
+                    <div class="shipping-item">
+                        <span>Адрес:</span>
+                        <input id="address" name="address" type="text" required>
+                    </div>
+                    <div class="shipping-item">
+                        <span>Телефон:</span>
+                        <input id="phone" name="phone" type="tel" required>
+                    </div>
+                    <div class="shipping-item">
+                        <span>E-mail:</span>
+                        <input id="email" name="email" type="email" required>
+                    </div>
+                    <div class="shipping-item">
+                        <span>Cпособ оплаты</span>
+                        <select id="payment" name="payment" id="payment" requires>
+                            <option value="картой">Visa/Mastercard</option>
+                            <option value="наличкой">Наличными</option>
+                        </select>
+                    </div>
+                    <input id="hiddenTotal" name="total" type="hidden" value="">
+                    <input id="hiddenArrive" name="arrive" type="hidden" value="">
+
+                    <input type="hidden" name="product" id="hidden-info" value="">
+                    <button onclick="purchase()" type="submit">Оплатить</button>
+                </div>
+            </form>
+        </div>
+        <div class="billing-right">
+            <div class="billing-summary">
+                <div class="summary-title">
+                    <h1>Barlyğy</h1>
+                </div>
+                <div style="padding: 0px 24px;" class="subtotal">
+                    <span>Промежуточный итог:</span>
+                    <sub id="subtotal">18000 ₸</sub>
+                </div>
+                <div style="padding: 0px 24px;" class="delivery">
+                    <span>Стоимость доставки:</span>
+                    <sub>0 ₸</sub>
+                </div>
+                <div style="padding: 0px 24px; border:none;" class="total">
+                    <span style="font-weight: bold;" >Итого:</span>
+                    <sub id="total" style="font-weight: bold;" >18000 ₸</sub>
+                </div>
+            </div>
+            <div style="margin-top:24px;" class="billing-delivery">
+                <div class="delivery-title">
+                    <h1>Jetkіzu</h1>
+                </div>
+                <div style="padding: 0px 24px;" class="delivery-desc">
+                    <span>Кол-во товара:</span>
+                    <sub id="cart-count">3</sub>
+                    <script>
+                        cartCount = document.getElementById("cart-count");
+                        cartCount.innerText = sessionStorage.length - 1;
+                    </script>
+                </div>
+                <div style="padding: 0px 24px;" class="delivery-time">
+                    <span>Доставят:</span>
+                    <sub id="order-date">22 февраля</sub>
+                </div>
+                <button onclick="window.location.href = '/products/cart'">Изменить корзину</button>
+            </div>
+            <div style="margin-top:48px;" class="return">
+                <span>* Товар можно вернуть в течении 14 дней</span>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/billing.js' %}?{% now "U" %}"></script>
+    <script>
+        let firstCart = {
+            name: "0",
+            feature: "0",
+            price: "0",
+            size: "0",
+            color: "0",
+            img: "0",
+        }
+        sessionStorage.setItem(0, JSON.stringify(firstCart));
+    </script>
+</body>
+</html>

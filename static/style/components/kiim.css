@@ -1,0 +1,64 @@
+.kiim {
+    padding: 24px 160px;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.kiim-item {
+    width: calc(33.3333% - 30px);
+    text-decoration: none;
+    color: black;
+}
+
+.kiim-img {
+    width: 100%;
+    overflow: hidden;
+    /* max-height: 600px; */
+    min-height: 520px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.kiim-item img {
+    height: 520px;
+    /* width: 100%; */
+    object-fit: contain;
+    margin-left: -50px;
+}
+
+.kiim-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kiim-item h1 {
+    margin: 12px 0;
+    font-size: 28px;
+}
+
+.kiim-item span {
+    font-size: 22px;
+}
+
+.kiim-item .liked {
+    outline: none;
+    margin-left: 12px;
+    height: 60px;
+    width: 60px;
+    border: transparent;
+    background: white;
+    border-radius: 8px;
+}
+
+.kiim-item  .liked svg {
+    height: 24px;
+    width: 24px;
+}
+
+.kiim-item  .liked svg:hover {
+    color: red;
+}

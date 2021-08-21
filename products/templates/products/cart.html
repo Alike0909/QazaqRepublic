@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section style="min-height: 380px;" class="cart">
+        <div id="bag" class="bag">
+            <div class="title">Sómkede</div>      
+        </div>
+        <div class="summary">
+            <div class="title">Barlyğy</div>
+            <div class="subtotal">
+                <span>Промежуточный итог:</span>
+                <sub id="subtotal" >18000 ₸</sub>
+            </div>
+            <div class="delivery">
+                <span>Стоимость доставки:</span>
+                <sub>0 ₸</sub>
+            </div>
+            <div class="total">
+                <span style="font-weight: bold;" >Итого:</span>
+                <sub id="total" style="font-weight: bold;" >18000 ₸</sub>
+            </div>
+            <button onclick="toBilling()" class="pay-btn">Оплатить</button>
+        </div>
+    </section>
+    <script src="{% static 'js/cart.js' %}?{% now "U" %}"></script>
+{% endblock content %}

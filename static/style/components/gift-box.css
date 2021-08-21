@@ -1,0 +1,97 @@
+.gift-box {
+    display: flex;
+}
+
+.gift-box div {
+    flex: 1;
+}
+
+.gift-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.gift-info {
+    background: #dfe0dc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-info h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.gift-info p {
+    margin-top: 12px;
+    width: 60%;
+    line-height: 20px;
+}
+
+@media (max-width: 1024px) {
+    .gift-info h1 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .gift-info p {
+        margin-top: 12px;
+        width: 75%;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gift-info h1 {
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .gift-info p {
+        margin-top: 12px;
+        width: 75%;
+        font-size: 12px;
+        line-height: 16px;
+    }
+}
+
+@media (max-width: 415px) {
+    .gift-box {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .gift-info {
+        padding: 24px;
+        width: 80%;
+        position: absolute;
+        margin-left: 10%;
+        margin-top: 25%;
+        border-radius: 12px;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+        backdrop-filter: blur(6px);
+    }
+}
+
+@media (max-width: 375px) {
+    .gift-box {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .gift-info {
+        padding: 24px;
+        width: 80%;
+        position: absolute;
+        margin-left: 10%;
+        margin-top: 25%;
+        border-radius: 12px;
+        background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+        backdrop-filter: blur(6px);
+    }
+}

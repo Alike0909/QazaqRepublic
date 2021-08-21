@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    </head>
+    <section class="main">
+        <a href="{% url 'products:kiim' %}">
+            <img src="{% static 'images/clothe.jpg' %}" alt="">
+            <div class="main-title">
+                <span>kıіm</span>
+            </div>
+        </a>
+        <a href="{% url 'products:syvenir' %}">
+            <img src="{% static 'images/souve.jpg' %}" alt="">
+            <div class="main-title">
+                <span>sývenır</span>
+            </div>
+        </a>
+    </section>
+    <section class="new">
+        <div class="new-title">
+            <span>Jańa</span>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                {% for object in objects %}
+                    <a href="{% url 'products:product-detail' object.0.pk %}" class="swiper-slide" style="text-decoration:none; color:black;">
+                        <div class="new-logo">
+                            <span>jańa</span>
+                        </div>
+                        <img href="#" src="../media/{{ object.1 }}" alt="">
+                        <div class="new-desc">
+                            <span href="#" >{{ object.0.name }}</span>
+                            <sub>{{ object.0.price }} ₸</sub>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="giftBox" class="gift-box">
+        <div class="gift-img">
+            <img src="{% static 'images/giftcards.jpg' %}" alt="">
+        </div>
+        <div class="gift-info">
+            <h1>QR:Giftcard — новинка!</h1>
+            <p>
+            бывает тяжело угадать размер и цвет подарка, особенно когда новый год уже на носу.. не переживай, у нас есть решение — подарочные карты. выражай свою любовь через них, а выбор оставь за близкими :)
+            номиналы: от 10 000 ₸ до 50 000 ₸
+            </p>
+        </div>
+    </section>
+    <section class="sen">
+        <h1 style="text-decoration:underline;">Sen.</h1>
+        <p>We put many hours of love <br> and courage to bring <span style="text-decoration:underline;">You</span> the goods <br> that's inside this box.</p>
+    </section>
+
+    <script>
+        var hiddenElement = document.getElementById("giftBox");
+        var btn = document.querySelector('.gift');
+
+        function handleButtonClick() {
+        hiddenElement.scrollIntoView({block: "center", behavior: "smooth"});
+        }
+
+        btn.addEventListener('click', handleButtonClick);
+    </script>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        cssMode: true,
+        pagination: {
+            el: '.swiper-pagination'
+        },
+        mousewheel: true,
+        keyboard: true,
+        });
+    </script>
+{% endblock content %}

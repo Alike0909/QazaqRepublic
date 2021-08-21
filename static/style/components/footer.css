@@ -1,0 +1,254 @@
+footer {
+    padding: 24px 84px;
+    background-color: #1847b3;
+    display: flex;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-right {
+    flex: 1;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo svg {
+    height: 32px;
+    width: 32px;
+}
+
+.footer-logo h1 {
+    font-size: 24px;
+    color: white;
+}
+
+.footer-address {
+    margin-top: 24px;
+    color: white;
+}
+
+.address-item {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.address-item sub {
+    margin-top: 6px;
+}
+
+.footer-right span {
+    font-size: 24px;
+    color: white;
+}
+
+.footer-right a {
+    color: white;
+}
+
+.footer-whatsapp {
+    width: 100%;
+    display: flex;
+}
+
+.whatsapp-icon {
+    margin-top: 24px;
+    margin-right: 12px;
+    margin-bottom: 24px;
+    text-decoration: none;
+    padding: 12px 0;
+    width: 20%;
+    border-radius: 12px;
+    background: #43d854;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.whatsapp-icon svg {
+    margin-right: 12px;
+}
+
+@media (max-width: 1024px) {
+    .footer-logo svg {
+        height: 28px;
+        width: 28px;
+    }
+
+    .footer-logo h1 {
+        font-size: 20px;
+        color: white;
+    }
+
+    .address-item span, sub{
+        font-size: 14px !important;
+    }
+
+    .footer-right span {
+        font-size: 20px;
+        color: white;
+    }
+
+    .whatsapp-icon {
+        margin-top: 24px;
+        margin-right: 12px;
+        margin-bottom: 24px;
+        text-decoration: none;
+        padding: 12px 0;
+        width: 30%;
+        border-radius: 12px;
+        background: #43d854;
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+    }
+
+    .whatsapp-icon svg {
+        margin-right: 8px;
+    }
+
+    .footer-address {
+        margin-top: 20px;
+        color: white;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 24px 60px;
+        background-color: #1847b3;
+        display: flex;
+    }
+
+    .footer-logo svg {
+        height: 28px;
+        width: 28px;
+    }
+
+    .footer-logo h1 {
+        font-size: 20px;
+        color: white;
+    }
+
+    .address-item span, sub{
+        font-size: 12px !important;
+    }
+
+    .footer-right span {
+        font-size: 20px;
+        color: white;
+    }
+
+    .whatsapp-icon {
+        margin-top: 20px;
+        margin-right: 12px;
+        margin-bottom: 20px;
+        text-decoration: none;
+        padding: 12px 0;
+        width: 35%;
+        border-radius: 12px;
+        background: #43d854;
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+    }
+
+    .whatsapp-icon svg {
+        margin-right: 6px;
+    }
+
+    .footer-address {
+        margin-top: 18px;
+        color: white;
+    }
+
+    .footer-right a {
+        font-size: 14px;
+        color: white;
+    }
+}
+
+@media (max-width: 415px) {
+    footer {
+        padding: 24px;
+        background-color: #1847b3;
+        display: flex;
+    }
+
+    .footer-whatsapp {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .whatsapp-icon {
+        margin-top: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        text-decoration: none;
+        padding: 12px 0;
+        width: 75%;
+        border-radius: 12px;
+        background: #43d854;
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+    }
+    
+    .footer-left {
+        display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    footer {
+        padding: 24px;
+        background-color: #1847b3;
+        display: flex;
+    }
+
+    .footer-whatsapp {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .whatsapp-icon {
+        margin-top: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        text-decoration: none;
+        padding: 12px 0;
+        width: 75%;
+        border-radius: 12px;
+        background: #43d854;
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-size: 14px;
+    }
+    
+    .footer-left {
+        display: none;
+    }
+
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+
+    .footer-right span {
+        width: fit-content;
+    }
+}

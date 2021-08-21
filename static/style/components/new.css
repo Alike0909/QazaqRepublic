@@ -1,0 +1,135 @@
+.new {
+    width: 100%;
+    padding: 24px 84px;
+}
+
+.new-title {
+    margin-bottom: 12px;
+}
+
+.new-title span {
+    margin-bottom: 12px;
+    font-size: 24px;
+    color: #1847b3;
+}
+
+.swiper-wrapper {
+    position: relative;
+}
+
+.swiper-wrapper .new-logo {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    padding: 6px 4px;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));;
+}
+
+.swiper-wrapper .new-logo span {
+    font-size: 24px;
+}
+
+.swiper-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.new-desc {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-desc span {
+    font-size: 24px;
+    /* line-height: 32px; */
+    font-weight: 700;
+}
+
+.new-desc sub {
+    margin-top: 12px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+    .new-title span {
+        margin-bottom: 12px;
+        font-size: 20px;
+        color: #1847b3;
+    }
+
+    .swiper-wrapper .new-logo span {
+        font-size: 20px;
+    }
+
+    .new-desc span {
+        font-size: 20px;
+        /* line-height: 32px; */
+        font-weight: 700;
+    }
+
+    .new-desc sub {
+        margin-top: 12px;
+        font-size: 16px;
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 768px) {
+    .new-title span {
+        margin-bottom: 12px;
+        font-size: 20px;
+        color: #1847b3;
+    }
+
+    .swiper-wrapper .new-logo span {
+        font-size: 20px;
+    }
+
+    .new-desc span {
+        font-size: 20px;
+        /* line-height: 32px; */
+        font-weight: 700;
+    }
+
+    .new-desc sub {
+        margin-top: 8px;
+        font-size: 16px;
+        opacity: 0.6;
+    }
+}
+
+@media (max-width: 415px) {
+    .new {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .swiper-slide {
+        overflow: hidden;
+        width: calc(50% - 16px) !important;
+    }
+
+    .swiper-wrapper img {
+        height: 30vh !important;
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .new {
+        width: 100%;
+        padding: 24px;
+    }
+
+    .swiper-slide {
+        overflow: hidden;
+        width: calc(50% - 16px) !important;
+    }
+
+    .swiper-wrapper img {
+        height: 25vh !important;
+        width: 100%;
+    }
+}

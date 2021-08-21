@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/components/dashboard.css' %}?{% now "U" %}">
+    <title>Dashboard</title>
+</head>
+<body style="background-image: url({% static 'images/wall.jpg' %}); background-position:top; background-size:cover; background-repeat: no-repeat;">
+    <section id="section-top" class="top">
+        <div class="top-item" style="background: linear-gradient(to right bottom, rgba(255, 160, 122, 0.9), rgba(255, 160, 122, 0.5));">
+            <div class="top-item-desc">
+                <h1>{{ totalMoney }} ₸</h1>
+                <h3>Заработано за все время</h3>
+            </div>
+            <div class="top-item-date">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                <span>обновление: {{ today }}</span>
+            </div>
+        </div>
+        <div class="top-item" style="background: linear-gradient(to right bottom, rgba(51, 255, 87, 0.9), rgba(51, 255, 87, 0.5));">
+            <div class="top-item-desc">
+                <h1>{{ todayMoney }} ₸</h1>
+                <h3>Заработано за сегодня</h3>
+            </div>
+            <div class="top-item-date">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                <span>обновление: {{ today }}</span>
+            </div>
+        </div>
+        <div class="top-item" style="background: linear-gradient(to right bottom, rgba(255, 87, 51, 0.9), rgba(255, 87, 51, 0.5));">
+            <div class="top-item-desc">
+                <h1>{{ clients }}</h1>
+                <h3>Покупателей за все время</h3>
+            </div>
+            <div class="top-item-date">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                <span>обновление: {{ today }}</span>
+            </div>
+        </div>
+        <div class="top-item" style="background: linear-gradient(to right bottom, rgba(51, 255, 189, 0.9), rgba(51, 255, 189, 0.5));">
+            <div class="top-item-desc">
+                <h1>{{ clientsToday }}</h1>
+                <h3>Покупателей за сегодня</h3>
+            </div>
+            <div class="top-item-date">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                <span>обновление: {{ today }}</span>
+            </div>
+        </div>
+        <div class="top-item" style="background: linear-gradient(to right bottom, rgba(219, 255, 51, 0.9), rgba(219, 255, 51, 0.5));">
+            <div class="top-item-desc">
+                <h1>{{ reviews }}</h1>
+                <h3>Комментариев за все время</h3>
+            </div>
+            <div class="top-item-date">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                </svg>
+                <span>обновление: {{ today }}</span>
+            </div>
+        </div>
+    </section>
+    <section id="section-dashboard" class="dashboard">
+        <table>
+            <tr>
+                <th>Клиент</th>
+                <th>Дата</th>
+                <th>Город</th>
+                <th>Адрес</th>
+                <th>Телефон</th>
+                <th>E-mail</th>
+                <th>Оплата</th>
+                <th>Итого</th>
+            </tr>
+            {% for customer in customers %}
+                <tr id="table-{{ customer.id }}" onmouseenter="showProducts({{ customer.id }})" onmouseout="hideProducts({{ customer.id }})" style="position:relative;">
+                    <td style="text-decoration:unerline; cursor:pointer;">{{ customer.name }}  {{ customer.surname }}</td>
+                    <td>{{ customer.date }}</td>
+                    <td>{{ customer.city }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.phone }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.payment }}</td>
+                    <td>{{ customer.total }} ₸</td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <input name="customer-id" type="hidden" value="{{ customer.id }}">
+                        <td><button onclick="location.reload();" type="submit">Выполнено</button></td>
+                    </form>
+                    <td id="product-{{ customer.id }}" style="display:none;" class="subtable">
+                        <table class="ProductTable">
+                            <tr>
+                                <th>Продукт</th>
+                                <th>Размер</th>
+                                <th>Цвет</th>
+                                <th>Цена</th>
+                            </tr>
+                        </table>
+                    </td>
+                    {% for object in objects %}
+                        {% if customer.id == object.0 %}
+                            <input class="object" type="hidden" value="{{object.1}}">
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+    <section id="section-alert" class="alert">
+        <img src="{% static 'images/device.png' %}?{% now "U" %}" alt="">
+        <h1>Поверните экран!</h1>
+    </section>
+    <script src="{% static 'js/dashboard.js' %}?{% now "U" %}"></script>
+</body>
+</html>

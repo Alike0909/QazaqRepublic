@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <section class="kiim">
+        {% for object in objects %}
+            <a href="{% url 'products:product-detail' object.0.pk %}" class="kiim-item" style="text-decoration: none;color: black;">
+                <div class="kiim-img">
+                    <img class="first" src="../media/{{ object.1 }}" onmouseover="this.src='../media/{{ object.2 }}'" onmouseout="this.src='../media/{{ object.1 }}'" border="0" alt="">
+                </div>
+                <div class="kiim-bottom">
+                    <div class="kiim-title">
+                        <h1>{{ object.0.name }}</h1>
+                        <span>{{ object.0.price }} ₸</span>
+                    </div>
+                    <input id="product-id" type="hidden" value="{{ object.0.id }}">
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+    <script src="{% static 'js/likes.js' %}?{% now "U" %}"></script>
+{% endblock content %}
+

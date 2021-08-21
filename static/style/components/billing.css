@@ -1,0 +1,142 @@
+.billing {
+    padding: 160px 320px;
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+}
+
+.shipping {
+    margin-right: 24px;
+    flex: 2;
+    border: 1px solid #1847b3;
+}
+
+.billing-right {
+    flex: 1;
+}
+
+.shipping-title {
+    padding: 12px 24px;
+    /* width: 100%; */
+    background: #1847b3;
+}
+
+.shipping-title h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.shipping-desc {
+    padding: 24px 240px 24px 24px;
+}
+
+.shipping-item {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.shipping-item  span {
+    font-size: 18px;
+}
+
+.shipping-item  input {
+    outline: none;
+    padding: 4px 8px;
+    font-size: 18px;
+    border: 1px solid #d6d6d6;
+}
+
+.shipping-item select {
+    outline: none;
+    padding: 4px 8px;
+    font-size: 16px;
+    border: 1px solid #d6d6d6;
+}
+
+.shipping-desc button {
+    margin-top: 12px;
+    outline: none;
+    font-family: 'Oswald', sans-serif;
+    height: 60px;
+    width: 100%;
+    /* border: 1px solid black; */
+    border: transparent;
+    background: #1847b3;
+    border-radius: 8px;
+    font-size: 18px;
+    color: white;
+}
+
+.shipping-desc button:hover {
+    background: #143c97;
+}
+
+.billing-summary {
+    height: fit-content;
+    border: 1px solid #1847b3;
+}
+
+.summary-title {
+    padding: 12px 24px;
+    /* width: 100%; */
+    background: #1847b3;
+}
+
+.summary-title h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.billing-summary span, sub {
+    font-size: 18px;
+    /* font-weight: 500; */
+}
+
+.billing-summary div {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.billing-delivery {
+    flex: 1;
+    height: fit-content;
+    border: 1px solid #1847b3;
+}
+
+.delivery-title {
+    padding: 12px 24px;
+    /* width: 100%; */
+    background: #1847b3;
+}
+
+.delivery-title h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.billing-delivery div {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.billing-delivery button {
+    margin-left: 30%;
+    margin-top: 12px;
+    outline: none;
+    font-family: 'Oswald', sans-serif;
+    /* border: 1px solid black; */
+    border: transparent;
+    background: transparent;
+    font-size: 18px;
+    color: #1847b3;
+}
+
+.billing-delivery button:hover {
+    text-decoration: underline;
+}
